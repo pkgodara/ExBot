@@ -17,6 +17,13 @@ defmodule ExBot.MixProject do
         "coveralls.detail": :test,
         "coveralls.post": :test,
         "coveralls.html": :test
+      ],
+      releases: [
+        ex_bot: [
+          include_erts: true,
+          include_executables_for: [:unix],
+          steps: [:assemble, :tar]
+        ]
       ]
     ]
   end

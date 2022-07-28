@@ -49,4 +49,6 @@ defmodule ExBot.Message do
       timestamp: timestamp
     }
   end
+
+  def parse(_), do: {:error, :invalid_message}
 end

@@ -21,10 +21,11 @@ defmodule ExBotWeb.MessengerController do
   end
 
   def handle_message(conn, %{"entry" => [event]} = _params) do
-    with :ok <- ExBot.Messenger.handle_event(event) do
-      conn
-      |> put_status(200)
-      |> json(%{status: "ok", message: "EVENT_RECEIVED"})
-    end
+    ExBot.Messenger.handle_event(event)
+
+    # Respond to event received, regardless of feedback
+    conn
+    |> put_status(200)
+    |> json(%{status: "ok", message: "EVENT_RECEIVED"})
   end
 end

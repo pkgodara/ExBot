@@ -25,17 +25,18 @@ if config_env() == :prod do
       You can generate one by calling: mix phx.gen.secret
       """
 
-  host = System.get_env("PHX_HOST") || "example.com"
+  if System.get_env("FB_PAGE_ACCESS_TOKEN") == nil,
+    do:
+      raise("""
+      environment variable FB_PAGE_ACCESS_TOKEN is missing.
+      """)
+
+  host = System.get_env("PHX_HOST") || "localhost"
   port = String.to_integer(System.get_env("PORT") || "4000")
 
   config :ex_bot, ExBotWeb.Endpoint,
-    url: [host: host, port: 443],
+    url: [host: host, port: port],
     http: [
-      # Enable IPv6 and bind on all interfaces.
-      # Set it to  {0, 0, 0, 0, 0, 0, 0, 1} for local network only access.
-      # See the documentation on https://hexdocs.pm/plug_cowboy/Plug.Cowboy.html
-      # for details about using IPv6 vs IPv4 and loopback vs public addresses.
-      ip: {0, 0, 0, 0, 0, 0, 0, 0},
       port: port
     ],
     secret_key_base: secret_key_base
@@ -68,3 +69,11 @@ if config_env() == :prod do
   #
   # See https://hexdocs.pm/swoosh/Swoosh.html#module-installation for details.
 end
+
+config :ex_bot,
+  fb: %{
+    base_url: "https://graph.facebook.com",
+    version: "v14.0",
+    send_api: "me/messages",
+    page_access_token: System.get_env("FB_PAGE_ACCESS_TOKEN")
+  }

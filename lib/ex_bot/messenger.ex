@@ -30,7 +30,10 @@ defmodule ExBot.Messenger do
     |> send_message()
   end
 
-  defp process_event(_message), do: {:error, :invalid_data}
+  defp process_event({:error, reason}) do
+    Logger.error("error processing event - #{inspect(reason)}")
+    {:error, reason}
+  end
 
   defp send_message(message) do
     with {:ok, _response} <- Facebook.post_message(message) do

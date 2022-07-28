@@ -1,0 +1,7 @@
+{
+    "skip_files": [
+        "lib/ex_bot_web.ex",
+        "lib/ex_bot_web/gettext.ex",
+        "lib/ex_bot_web/endpoint.ex"
+    ]
+}
