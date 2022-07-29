@@ -10,6 +10,14 @@ defmodule ExBot.TemplatesTest do
 
       greeting = """
       Hi #{name}! Welcome!
+      --
+      Search coins by name or ID -
+      Type - list <query>
+
+      Exmaples -
+      1. list usd
+      2. list bitcoin
+      3. list usd coin
       """
 
       assert greeting == EEx.eval_string(Templates.greet(), name: name)

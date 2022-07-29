@@ -26,10 +26,12 @@ defmodule ExBot.CommandsTest do
       end)
 
       assert %{
-               "message" => %{"text" => "Hi John! Welcome!\n"},
+               "message" => %{"text" => text},
                "messaging_type" => "RESPONSE",
                "recipient" => %{"id" => ^sender_id}
              } = Commands.execute(message, "hi", ["any", "other", "data"])
+
+      assert text =~ "Hi John! Welcome!"
     end
 
     test "command - help" do

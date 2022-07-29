@@ -8,6 +8,14 @@ defmodule ExBot.Templates do
   def greet do
     """
     Hi <%= name %>! Welcome!
+    --
+    Search coins by name or ID -
+    Type - list <query>
+
+    Exmaples -
+    1. list usd
+    2. list bitcoin
+    3. list usd coin
     """
   end
 

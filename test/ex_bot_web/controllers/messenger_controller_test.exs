@@ -64,7 +64,10 @@ defmodule ExBotWeb.MessengerControllerTest do
       end)
 
       message = %{
-        "message" => %{"text" => "Hi John! Welcome!\n"},
+        "message" => %{
+          "text" =>
+            "Hi John! Welcome!\n--\nSearch coins by name or ID -\nType - list <query>\n\nExmaples -\n1. list usd\n2. list bitcoin\n3. list usd coin\n"
+        },
         "messaging_type" => "RESPONSE",
         "recipient" => %{"id" => sender_id}
       }
