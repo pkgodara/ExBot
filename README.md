@@ -1,7 +1,7 @@
 # ExBot
 
 To start your Phoenix server:
-
+  * Checkout to the directory
   * Install dependencies with `mix deps.get`
   * Start Phoenix endpoint with `mix phx.server` or inside IEx with `iex -S mix phx.server`
 
