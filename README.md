@@ -9,6 +9,20 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
+## Setup
+
+1. Create an account on `developers.facebook.com`
+2. Create an App for the Bot
+3. Add Messenger as product
+4. Create & Attach a facebook page to the above app
+5. Go to Messenger settings
+6. Use `Generate token`, this is your `FB_PAGE_ACCESS_TOKEN`
+7. Subscribe to `messages` and `messaging_postbacks` webhooks for the Page
+8. Add Callback webhook, in the format `https://example.com/api/facebook_webhook`
+9. Ready to interact.
+
+If you're on local, you can use `ngrok http 4000` for forward your requests.
+
 ## Interact?
 
 ### Greet
