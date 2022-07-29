@@ -17,8 +17,14 @@ Ready to run in production? Please [check our deployment guides](https://hexdocs
 4. Create & Attach a facebook page to the above app
 5. Go to Messenger settings
 6. Use `Generate token`, this is your `FB_PAGE_ACCESS_TOKEN`
+<img width="986" alt="Screenshot 2022-07-29 at 9 29 52 AM" src="https://user-images.githubusercontent.com/16938349/181693070-996a5396-d7f3-4e3b-9016-e5619f8120bc.png">
+
 7. Subscribe to `messages` and `messaging_postbacks` webhooks for the Page
+<img width="986" alt="Screenshot 2022-07-29 at 9 30 23 AM" src="https://user-images.githubusercontent.com/16938349/181693130-87cb717e-2fca-40b0-8e03-a8f70585659d.png">
+
 8. Add Callback webhook, in the format `https://example.com/api/facebook_webhook`
+<img width="986" alt="Screenshot 2022-07-29 at 9 30 08 AM" src="https://user-images.githubusercontent.com/16938349/181693163-1648b304-c81f-4400-bd1b-241b99e404eb.png">
+
 9. Ready to interact.
 
 If you're on local, you can use `ngrok http 4000` for forward your requests.
